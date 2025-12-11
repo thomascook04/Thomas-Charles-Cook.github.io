@@ -171,41 +171,56 @@
         }
 
         .social-links {
-    gap: 0.5rem;
-}
+            gap: 0.5rem;
+        }
 
-    .social-icon {
-        width: 38px;
-        height: 38px;
-        border-radius: 999px;
-        border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.06);
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        color: var(--text);
-    }
+        .metric {
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            min-width: 180px;
+        }
 
-    .social-icon svg {
-        width: 18px;
-        height: 18px;
-        fill: currentColor;
-    }
+        .metric .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
 
-    /* Light mode tuning */
-    body[data-theme="day"] .social-icon {
-        background: rgba(0, 0, 0, 0.03);
-        color: #0d1b2a;
-        border-color: rgba(0, 0, 0, 0.08);
-    }
+        .metric .text-muted {
+            margin-top: 0.35rem;
+        }
 
-    .social-icon:hover {
-        background: var(--accent);
-        color: #051026;
-        border-color: var(--accent);
-    }
+        .social-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.06);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--text);
+        }
 
+        .social-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        body[data-theme="day"] .social-icon {
+            background: rgba(0, 0, 0, 0.03);
+            color: #0d1b2a;
+            border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        .social-icon:hover {
+            background: var(--accent);
+            color: #051026;
+            border-color: var(--accent);
+        }
 
         .headshot-frame {
             width: 180px;
@@ -227,16 +242,6 @@
             position: absolute;
             inset: 0;
         }
-
-        .metric {
-            padding: 1rem 1.25rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            min-width: 150px;
-        }
-
-        .metric .number { font-size: 1.7rem; font-weight: 700; }
 
         .badge-soft {
             padding: 0.35rem 0.75rem;
@@ -271,15 +276,6 @@
 
         .contact-card { height: 100%; }
 
-        .timeline-line {
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--accent), transparent);
-        }
-
         .table-responsive { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
 
         .tagline {
@@ -296,7 +292,6 @@
             .headshot-frame { width: 140px; height: 140px; }
         }
 
-        /* Light mode (toggle) */
         body[data-theme="day"] {
             --bg: #f6f8fb;
             --panel: rgba(255, 255, 255, 0.95);
@@ -332,52 +327,12 @@
         body[data-theme="day"] a:hover { color: #0a58ca; }
         body[data-theme="day"] .badge-soft { background: rgba(13, 110, 253, 0.1); color: #0d1b2a; border-color: rgba(13, 110, 253, 0.2); }
 
-        .module-card {
-            border-radius: 14px;
-            padding: 1rem;
-            border: 1px solid var(--border);
-            background: linear-gradient(160deg, rgba(62,164,255,0.14), rgba(122,245,155,0.08));
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-        .module-card.active { border-color: var(--accent); box-shadow: 0 10px 30px rgba(62,164,255,0.25); }
-
-        .module-card .label { font-size: 0.85rem; color: var(--muted); }
-        .module-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            padding: 0.25rem 0.6rem;
-            border-radius: 999px;
-            border: 1px solid var(--border);
-            background: rgba(255, 255, 255, 0.06);
-            font-size: 0.85rem;
-        }
-
-        .module-card .ghost {
-            position: absolute;
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,255,255,0.09), transparent 60%);
-            right: -40px;
-            top: -60px;
-            filter: blur(4px);
-            pointer-events: none;
-        }
-
         .pdf-frame {
             width: 100%;
             height: 320px;
             border: 1px solid var(--border);
             border-radius: 12px;
             background: rgba(255, 255, 255, 0.02);
-        }
-
-        .hobby-image {
-            border-radius: 12px;
-            object-fit: cover;
         }
 
         .hobby-carousel {
@@ -391,35 +346,32 @@
             height: 220px;
             object-fit: cover;
         }
-        /* Skill pills by type */
-    .skill-pill {
-    border-radius: 999px;
-    padding: 0.25rem 0.7rem;
-    font-size: 0.85rem;
-    margin: 0 0.3rem 0.3rem 0;
-    border: 1px solid var(--border);
-}
 
-    /* Dark-mode colours */
-    .skill-pill-lang  { background: rgba(62,164,255,0.18);  color: #e5f1ff; }
-    .skill-pill-lib   { background: rgba(122,245,155,0.18); color: #e9fff3; }
-    .skill-pill-tool  { background: rgba(230,195,120,0.2);  color: #fff6da; }
-    .skill-pill-core  { background: rgba(180,142,255,0.2);  color: #f4e9ff; }
+        .skill-pill {
+            border-radius: 999px;
+            padding: 0.25rem 0.7rem;
+            font-size: 0.85rem;
+            margin: 0 0.3rem 0.3rem 0;
+            border: 1px solid var(--border);
+        }
 
-    /* Light mode */
-    body[data-theme="day"] .skill-pill-lang,
-    body[data-theme="day"] .skill-pill-lib,
-    body[data-theme="day"] .skill-pill-tool,
-    body[data-theme="day"] .skill-pill-core {
-        color: #0d1b2a;
-        border-color: rgba(0, 0, 0, 0.08);
-    }
+        .skill-pill-lang  { background: rgba(62,164,255,0.18);  color: #e5f1ff; }
+        .skill-pill-lib   { background: rgba(122,245,155,0.18); color: #e9fff3; }
+        .skill-pill-tool  { background: rgba(230,195,120,0.2);  color: #fff6da; }
+        .skill-pill-core  { background: rgba(180,142,255,0.2);  color: #f4e9ff; }
 
-    body[data-theme="day"] .skill-pill-lang  { background: rgba(62,164,255,0.12); }
-    body[data-theme="day"] .skill-pill-lib   { background: rgba(122,245,155,0.12); }
-    body[data-theme="day"] .skill-pill-tool  { background: rgba(230,195,120,0.16); }
-    body[data-theme="day"] .skill-pill-core  { background: rgba(180,142,255,0.16); }
+        body[data-theme="day"] .skill-pill-lang,
+        body[data-theme="day"] .skill-pill-lib,
+        body[data-theme="day"] .skill-pill-tool,
+        body[data-theme="day"] .skill-pill-core {
+            color: #0d1b2a;
+            border-color: rgba(0, 0, 0, 0.08);
+        }
 
+        body[data-theme="day"] .skill-pill-lang  { background: rgba(62,164,255,0.12); }
+        body[data-theme="day"] .skill-pill-lib   { background: rgba(122,245,155,0.12); }
+        body[data-theme="day"] .skill-pill-tool  { background: rgba(230,195,120,0.16); }
+        body[data-theme="day"] .skill-pill-core  { background: rgba(180,142,255,0.16); }
     </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="70" tabindex="0">
@@ -460,16 +412,15 @@
             <div class="col-lg-7">
                 <span class="hero-chip">2025 Portfolio</span>
                 <h1 class="hero-title fw-bold mt-3">Thomas Charles Cook</h1>
-                <p class="lead mb-3 tagline" id="typewriter">BSc (Hons) Computing with Machine Learning and Artificial Intelligence student at Technological University Dublin.</p>
-                <p class="mb-4">
+                <p class="lead mb-3 tagline" id="typewriter">
+                    BSc (Hons) Computing with Machine Learning and Artificial Intelligence student at Technological University Dublin.
                 </p>
+
                 <div class="d-flex flex-wrap gap-3 align-items-center">
-                    <!-- Primary contact button (re-using old View Projects style) -->
                     <button class="btn btn-primary btn-lg js-scroll" data-target="#contact">
                         Contact Me
                     </button>
-                
-                    <!-- Social icons -->
+
                     <div class="social-links d-flex align-items-center">
                         <a
                             href="https://www.linkedin.com/in/thomas-charles-c-1ab6b61bb"
@@ -482,7 +433,7 @@
                                 <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.32 8.13h4.36V24H.32zM8.19 8.13h4.18v2.16h.06c.58-1.1 2-2.25 4.12-2.25 4.4 0 5.21 2.9 5.21 6.67V24h-4.36v-7.08c0-1.69-.03-3.86-2.35-3.86-2.35 0-2.71 1.84-2.71 3.74V24H8.19z"/>
                             </svg>
                         </a>
-                
+
                         <a
                             href="https://github.com/thomascook04"
                             class="social-icon"
@@ -495,22 +446,26 @@
                             </svg>
                         </a>
                     </div>
-                </div>                
+                </div>
+
                 <div class="d-flex flex-wrap gap-3 mt-4 hero-metrics">
-                    <div class="metric" data-count="4">
+                    <div class="metric" data-count="2">
                         <div class="number">0</div>
-                        <div class="text-muted">Students tutored</div>
+                        <div class="text-muted">Publications</div>
                     </div>
-                    <div class="metric" data-count="3.33">
-                        <div class="number">0</div>
-                        <div class="text-muted">GPA</div>
+
+                    <div class="metric" data-count="1:1">
+                        <div class="number">1:1</div>
+                        <div class="text-muted">Degree classification</div>
                     </div>
-                    <div class="metric" data-count="1">
+
+                    <div class="metric" data-count="6+">
                         <div class="number">0</div>
-                        <div class="text-muted">Years of experience</div>
+                        <div class="text-muted">Months of AI industry experience</div>
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-5">
                 <div class="hero-grid p-4">
                     <div class="headshot-frame" id="headshotFrame">
@@ -538,13 +493,9 @@
             <div class="col-lg-12">
                 <div class="card h-100">
                     <div class="card-body">
-                        <p>
-                            <p>I’m a final-year BSc (Hons) Computing with Machine Learning and Artificial Intelligence student at Technological University Dublin, with a focus on applied AI, agents, and Retrieval-Augmented Generation (RAG). I’ve worked on everything from classic ML and data analysis to building multi-agent RAG systems and LLM tooling for real-world use in a fintech setting.</p>
-
-                            <p>I've interned as an AI Software Engineer & Research Intern at Mastercard, where I’ve helped design and build an agentic RAG pipeline and contribute to research on tool-calling and retrieval in regulated, on-prem environments. On campus, I worked as a computer science tutor, supporting students with programming, databases, discrete maths, and software testing, which has made me very comfortable explaining technical ideas clearly and meeting people where they are.</p>
-                            
-                            <p>Before moving to Dublin, I studied in Italy and the US (Laguna Beach High School), played varsity tennis, and coached younger players. Outside of work and college, I’m into Formula 1, hiking, traveling, and films.</p>
-                        </p>
+                        <p>I’m a final-year BSc (Hons) Computing with Machine Learning and Artificial Intelligence student at Technological University Dublin, with a focus on applied AI, agents, and Retrieval-Augmented Generation (RAG). I’ve worked on everything from classic ML and data analysis to building multi-agent RAG systems and LLM tooling for real-world use in a fintech setting.</p>
+                        <p>I've interned as an AI Software Engineer & Research Intern at Mastercard, where I’ve helped design and build an agentic RAG pipeline and contribute to research on tool-calling and retrieval in regulated, on-prem environments. On campus, I worked as a computer science tutor, supporting students with programming, databases, discrete maths, and software testing, which has made me very comfortable explaining technical ideas clearly and meeting people where they are.</p>
+                        <p>Before moving to Dublin, I studied in Italy and the US (Laguna Beach High School), played varsity tennis, and coached younger players. Outside of work and college, I’m into Formula 1, hiking, traveling, and films.</p>
                     </div>
                 </div>
             </div>
@@ -634,7 +585,7 @@
                             <td>B</td>
                         </tr>
                         <tr class="module-row" data-year="year2">
-                            <td>Routing & Switching Essentials</td>
+                            <td>Routing &amp; Switching Essentials</td>
                             <td>B+</td>
                         </tr>
                         <tr class="module-row" data-year="year2">
@@ -642,7 +593,7 @@
                             <td>B+</td>
                         </tr>
                         <tr class="module-row" data-year="year2">
-                            <td>Database Admin & Analysis</td>
+                            <td>Database Admin &amp; Analysis</td>
                             <td>B+</td>
                         </tr>
                         <tr class="module-row" data-year="year2">
@@ -658,7 +609,7 @@
                             <td>B</td>
                         </tr>
                         <tr class="module-row" data-year="year2">
-                            <td>Software Quality Assurance & Testing</td>
+                            <td>Software Quality Assurance &amp; Testing</td>
                             <td>B+</td>
                         </tr>
                         <tr class="module-row" data-year="year2">
@@ -687,7 +638,7 @@
                             <td>B</td>
                         </tr>
                         <tr class="module-row" data-year="year3">
-                            <td>Cloud Service & Distributed Computing</td>
+                            <td>Cloud Service &amp; Distributed Computing</td>
                             <td>B</td>
                         </tr>
                         <tr class="module-row" data-year="year3">
@@ -695,7 +646,7 @@
                             <td>B+</td>
                         </tr>
                         <tr class="module-row" data-year="year3">
-                            <td>Data Structures & Algorithms</td>
+                            <td>Data Structures &amp; Algorithms</td>
                             <td>B</td>
                         </tr>
                         <tr class="module-row" data-year="year3">
@@ -733,7 +684,6 @@
                 <p class="text-muted small mb-0 mt-2" id="modulesHint">Filtering Year 2 modules.</p>
             </div>
         </div>
-
     </div>
 </section>
 
@@ -762,21 +712,17 @@
                             <strong>February 2025 – August 2025</strong><br>
                             Dublin, Ireland
                         </p>
-                        <p class="mb-0">
-                            <em>
-                            <ul class="mb-0">
-                                <li>
-                                    Built an agentic RAG system end-to-end — from data ingestion and schema normalization to retrieval, re-ranking, and grounded answer generation — along with a reproducible on-prem pipeline.
-                                </li>
-                                <li>
-                                    Designed an evaluation suite (coverage, Hit@k, semantic accuracy, latency) that showed clear improvements over a baseline and supported reliable handover through runbooks and lightweight tests.
-                                </li>
-                                <li>
-                                    Delivered a live demo to senior leadership and authored a published research paper documenting the architecture, methods, and results, shaping further internal adoption.
-                                </li>
-                            </ul>
-                            </em>
-                        </p>
+                        <ul class="mb-0">
+                            <li>
+                                Built an agentic RAG system end-to-end — from data ingestion and schema normalization to retrieval, re-ranking, and grounded answer generation — along with a reproducible on-prem pipeline.
+                            </li>
+                            <li>
+                                Designed an evaluation suite (coverage, Hit@k, semantic accuracy, latency) that showed clear improvements over a baseline and supported reliable handover through runbooks and lightweight tests.
+                            </li>
+                            <li>
+                                Delivered a live demo to senior leadership and authored a published research paper documenting the architecture, methods, and results, shaping further internal adoption.
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -798,8 +744,7 @@
                         </p>
                         <ul class="mb-0">
                             <li>Tutored First Year and Second Year students.</li>
-                            <li>Supported modules in Programming, Databases, Discrete Mathematics, and
-                                Software Testing and Quality Assurance.</li>
+                            <li>Supported modules in Programming, Databases, Discrete Mathematics, and Software Testing and Quality Assurance.</li>
                         </ul>
                     </div>
                 </div>
@@ -877,7 +822,7 @@
     <div class="container">
         <div class="section-heading mb-3">
             <div class="accent-bar"></div>
-            <h2 class="mb-0">Skills & Languages</h2>
+            <h2 class="mb-0">Skills &amp; Languages</h2>
         </div>
 
         <div class="row g-3">
@@ -896,7 +841,7 @@
                         </p>
 
                         <!-- Libraries / frameworks -->
-                        <h6 class="text-muted mb-1">Libraries & Frameworks</h6>
+                        <h6 class="text-muted mb-1">Libraries &amp; Frameworks</h6>
                         <p class="mb-3">
                             <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">NumPy</span>
                             <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">SciPy</span>
@@ -941,7 +886,7 @@
                             <span class="badge skill-pill skill-pill-core skill-item" data-category="core">Technical presentations</span>
                             <span class="badge skill-pill skill-pill-core skill-item" data-category="core">Research writing</span>
                             <span class="badge skill-pill skill-pill-core skill-item" data-category="core">Data storytelling</span>
-                            <span class="badge skill-pill skill-pill-core skill-item" data-category="core">Mentoring & tutoring</span>
+                            <span class="badge skill-pill skill-pill-core skill-item" data-category="core">Mentoring &amp; tutoring</span>
                             <span class="badge skill-pill skill-pill-core skill-item" data-category="core">Stakeholder communication</span>
                         </p>
                     </div>
@@ -970,6 +915,7 @@
         </div>
     </div>
 </section>
+
 <!-- PUBLICATION -->
 <section id="publication" class="bg-light reveal">
     <div class="container">
@@ -989,7 +935,7 @@
                      aria-labelledby="headingRAG" data-bs-parent="#publicationAccordion">
                     <div class="accordion-body">
                         <p class="mb-3">
-                            Retrieval-Augmented Generation (RAG) systems often face limitations in specialized domains such as fintech, where domain-specific ontologies, dense terminology, and acronyms complicate effective retrieval and synthesis. This paper introduces an agentic RAG architecture designed to address these challenges through a modular pipeline of specialized agents. The proposed system supports intelligent query reformulation, iterative sub-query decomposition guided by keyphrase extraction, contextual acronym resolution, and cross-encoder-based context re-ranking. We evaluate our approach against a standard RAG baseline using a curated dataset of 85 question--answer--reference triples derived from an enterprise fintech knowledge base. Experimental results demonstrate that the agentic RAG system outperforms the baseline in retrieval precision and relevance, albeit with increased latency. These findings suggest that structured, multi-agent methodologies offer a promising direction for enhancing retrieval robustness in complex, domain-specific settings.
+                            Retrieval-Augmented Generation (RAG) systems often face limitations in specialized domains such as fintech, where domain-specific ontologies, dense terminology, and acronyms complicate effective retrieval and synthesis. This paper introduces an agentic RAG architecture designed to address these challenges through a modular pipeline of specialized agents. The proposed system supports intelligent query reformulation, iterative sub-query decomposition guided by keyphrase extraction, contextual acronym resolution, and cross-encoder-based context re-ranking. We evaluate our approach against a standard RAG baseline using a curated dataset of 85 question–answer–reference triples derived from an enterprise fintech knowledge base. Experimental results demonstrate that the agentic RAG system outperforms the baseline in retrieval precision and relevance, albeit with increased latency. These findings suggest that structured, multi-agent methodologies offer a promising direction for enhancing retrieval robustness in complex, domain-specific settings.
                         </p>
                         <a class="btn btn-primary" href="https://www.researchgate.net/publication/397040674_Retrieval_Augmented_Generation_RAG_for_Fintech_Agentic_Design_and_Evaluation" target="_blank" rel="noreferrer">Read more</a>
                     </div>
@@ -1022,16 +968,15 @@
     <div class="container">
         <div class="section-heading">
             <div class="accent-bar"></div>
-            <h2 class="mb-0">Hobbies & Interests</h2>
+            <h2 class="mb-0">Hobbies &amp; Interests</h2>
         </div>
         <div class="row g-3">
             <!-- F1 & Cars -->
             <div class="col-md-6 col-lg-3">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Formula 1 & Cars</h5>
+                        <h5 class="card-title">Formula 1 &amp; Cars</h5>
 
-                        <!-- Carousel for cars -->
                         <div id="carsCarousel" class="carousel slide hobby-carousel" data-bs-ride="false">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
@@ -1061,7 +1006,7 @@
                         </div>
 
                         <p class="mb-0">
-                            I’ve followed Formula 1 for years and I’m fascinated by how data, strategy, and engineering decisions translate into performance on track. I haven't missed a single race since 2012. 
+                            I’ve followed Formula 1 for years and I’m fascinated by how data, strategy, and engineering decisions translate into performance on track. I haven't missed a single race since 2012.
                         </p>
                     </div>
                 </div>
@@ -1083,7 +1028,7 @@
             <div class="col-md-6 col-lg-3">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Movies & Letterboxd</h5>
+                        <h5 class="card-title">Movies &amp; Letterboxd</h5>
                         <p>
                             I love films that balance good writing with strong visual style, and I track what I watch on Letterboxd. I tend to gravitate toward character-driven stories, grounded sci-fi, and anything with good pacing and atmosphere.
                         </p>
@@ -1098,9 +1043,8 @@
             <div class="col-md-6 col-lg-3">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Travel & Hiking</h5>
+                        <h5 class="card-title">Travel &amp; Hiking</h5>
 
-                        <!-- Carousel for hiking/travel with flip-cards -->
                         <div id="hikingCarousel" class="carousel slide hobby-carousel" data-bs-ride="false">
                             <div class="carousel-inner">
 
@@ -1381,6 +1325,7 @@
         </div>
     </div>
 </section>
+
 <!-- CONTACT -->
 <section id="contact" class="bg-light reveal">
     <div class="container">
@@ -1511,11 +1456,7 @@
     // Back to top visibility
     const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', function () {
-        if (window.scrollY > 300) {
-            backToTop.style.display = 'block';
-        } else {
-            backToTop.style.display = 'none';
-        }
+        backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
     });
     backToTop.addEventListener('click', function () {
         window.scrollTo({top: 0, behavior: 'smooth'});
@@ -1572,30 +1513,7 @@
         });
     });
 
-    // Default to Year 2
     filterModules('year2');
-
-    // Skills filter
-    const skillsFilterButtons = document.querySelectorAll('.skills-filter');
-    const skillItems = document.querySelectorAll('.skill-item');
-
-    skillsFilterButtons.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-            const filter = btn.getAttribute('data-filter');
-
-            skillsFilterButtons.forEach(function (b) { b.classList.remove('active'); });
-            btn.classList.add('active');
-
-            skillItems.forEach(function (item) {
-                const categories = item.getAttribute('data-category') || '';
-                if (filter === 'all' || categories.split(' ').includes(filter)) {
-                    item.classList.remove('d-none');
-                } else {
-                    item.classList.add('d-none');
-                }
-            });
-        });
-    });
 
     // Footer year
     document.getElementById('yearSpan').textContent = new Date().getFullYear();
@@ -1646,24 +1564,50 @@
 
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // Counters animate when visible
+    // KPI counters
     const counters = document.querySelectorAll('[data-count]');
     const counterObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = Number(entry.target.dataset.count || 0);
-                let current = 0;
-                const step = Math.max(1, Math.floor(target / 80));
-                const timer = setInterval(() => {
-                    current += step;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    entry.target.querySelector('.number').textContent = current;
-                }, 18);
+            if (!entry.isIntersecting) return;
+
+            const raw = entry.target.dataset.count || '0';
+            const numberEl = entry.target.querySelector('.number');
+
+            const plusMatch = raw.match(/^(\d+)\+$/);
+            const numMatch  = raw.match(/^\d+(\.\d+)?$/);
+
+            let target;
+            let suffix = '';
+
+            if (plusMatch) {
+                target = parseFloat(plusMatch[1]);
+                suffix = '+';
+            } else if (numMatch) {
+                target = parseFloat(raw);
+            } else {
+                numberEl.textContent = raw;
                 counterObserver.unobserve(entry.target);
+                return;
             }
+
+            let current = 0;
+            const step = Math.max(target / 80, 0.5);
+
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+
+                const display = Number.isInteger(target)
+                    ? Math.round(current)
+                    : current.toFixed(2);
+
+                numberEl.textContent = display + suffix;
+            }, 18);
+
+            counterObserver.unobserve(entry.target);
         });
     }, { threshold: 0.6 });
 
@@ -1706,7 +1650,6 @@
     }
     messageInput.addEventListener('input', updateMessageCounter);
     updateMessageCounter();
-
 </script>
 
 </body>
