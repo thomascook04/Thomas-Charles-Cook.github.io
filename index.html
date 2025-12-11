@@ -356,20 +356,32 @@
         }
         /* Skill pills by type */
     .skill-pill {
-        border-radius: 999px;
-        padding: 0.2rem 0.65rem;
-        font-size: 0.8rem;
-        border: 1px solid var(--border);
-        display: inline-flex;
-        align-items: center;
-        margin-right: 0.25rem;
-        margin-bottom: 0.25rem;
+    border-radius: 999px;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.85rem;
+    margin: 0 0.3rem 0.3rem 0;
+    border: 1px solid var(--border);
+}
+
+    /* Dark-mode colours */
+    .skill-pill-lang  { background: rgba(62,164,255,0.18);  color: #e5f1ff; }
+    .skill-pill-lib   { background: rgba(122,245,155,0.18); color: #e9fff3; }
+    .skill-pill-tool  { background: rgba(230,195,120,0.2);  color: #fff6da; }
+    .skill-pill-core  { background: rgba(180,142,255,0.2);  color: #f4e9ff; }
+
+    /* Light mode */
+    body[data-theme="day"] .skill-pill-lang,
+    body[data-theme="day"] .skill-pill-lib,
+    body[data-theme="day"] .skill-pill-tool,
+    body[data-theme="day"] .skill-pill-core {
+        color: #0d1b2a;
+        border-color: rgba(0, 0, 0, 0.08);
     }
 
-    .skill-pill-lang { background: rgba(62, 164, 255, 0.18); }   /* programming languages */
-    .skill-pill-lib  { background: rgba(122, 245, 155, 0.18); }  /* libraries / frameworks */
-    .skill-pill-tool { background: rgba(255, 193, 7, 0.18); }    /* tooling */
-    .skill-pill-core { background: rgba(214, 51, 132, 0.18); }   /* core/soft skills */
+    body[data-theme="day"] .skill-pill-lang  { background: rgba(62,164,255,0.12); }
+    body[data-theme="day"] .skill-pill-lib   { background: rgba(122,245,155,0.12); }
+    body[data-theme="day"] .skill-pill-tool  { background: rgba(230,195,120,0.16); }
+    body[data-theme="day"] .skill-pill-core  { background: rgba(180,142,255,0.16); }
 
     </style>
 </head>
@@ -1307,10 +1319,6 @@
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-
-                        <p class="mb-0 mt-2 text-muted small">
-                            Click any photo to flip and see the location.
-                        </p>
                     </div>
                 </div>
             </div>
