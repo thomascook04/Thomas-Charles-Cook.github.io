@@ -1,0 +1,1649 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Thomas Charles Cook - Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Fonts & Bootstrap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <style>
+        :root {
+            --bg: #070c1f;
+            --panel: rgba(255, 255, 255, 0.06);
+            --panel-strong: rgba(255, 255, 255, 0.1);
+            --muted: #9fb0d4;
+            --accent: #7af59b;
+            --accent-2: #3ea4ff;
+            --text: #e9efff;
+            --border: rgba(255, 255, 255, 0.14);
+            --shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+        }
+
+        body {
+            font-family: 'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
+            background:
+                radial-gradient(900px at 15% 15%, rgba(62, 164, 255, 0.14), transparent 40%),
+                radial-gradient(800px at 80% 0%, rgba(122, 245, 155, 0.16), transparent 45%),
+                radial-gradient(700px at 50% 75%, rgba(62, 164, 255, 0.1), transparent 40%),
+                var(--bg);
+            color: var(--text);
+            scroll-behavior: smooth;
+        }
+
+        ::selection {
+            background: rgba(122, 245, 155, 0.25);
+        }
+
+        .text-muted { color: var(--muted) !important; }
+        .card-subtitle { color: var(--muted); }
+
+        a { color: #a8d8ff; }
+        a:hover { color: var(--accent); }
+
+        .glass-nav {
+            background: rgba(7, 12, 31, 0.9);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(14px);
+        }
+
+        .navbar-brand { color: #fff; letter-spacing: 0.02em; }
+        .navbar-brand:hover { color: var(--accent); }
+        .navbar .nav-link { color: var(--muted); }
+        .navbar .nav-link.active, .navbar .nav-link:hover { color: #fff; }
+
+        section {
+            position: relative;
+            padding: 5rem 0;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .section-heading .accent-bar {
+            width: 38px;
+            height: 4px;
+            background: linear-gradient(120deg, var(--accent), var(--accent-2));
+            border-radius: 999px;
+        }
+
+        .bg-light { background-color: rgba(255, 255, 255, 0.04) !important; }
+
+        .card, .accordion-item, .modal-content {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            color: var(--text);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .accordion-button {
+            background: var(--panel-strong);
+            color: var(--text);
+            border-color: var(--border);
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: var(--text);
+            box-shadow: none;
+            background: var(--panel-strong);
+        }
+
+        .accordion-button:focus { box-shadow: 0 0 0 1px var(--accent-2); }
+        .accordion-body { color: var(--text); }
+
+        .table { color: var(--text); background: transparent; }
+        .table thead { color: #d7e4ff; }
+        .table tbody tr { border-color: var(--border); }
+        .table td, .table th { background-color: transparent !important; color: var(--text); }
+        body[data-theme="day"] .table thead { color: #1d2b46; }
+
+        .btn-primary {
+            border: none;
+            background: linear-gradient(120deg, var(--accent), var(--accent-2));
+            color: #051026;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(62, 164, 255, 0.25);
+        }
+
+        .btn-outline-secondary, .btn-outline-light {
+            border-color: var(--border);
+            color: var(--text);
+            background: transparent;
+        }
+
+        .btn-outline-secondary:hover, .btn-outline-light:hover {
+            color: #051026;
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .btn-soft {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border);
+        }
+
+        header#hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 7rem;
+        }
+
+        .hero-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.8rem;
+            border-radius: 999px;
+            background: rgba(122, 245, 155, 0.12);
+            color: var(--accent);
+            border: 1px solid rgba(122, 245, 155, 0.3);
+        }
+
+        .hero-title { font-size: clamp(2.5rem, 4vw, 3.75rem); }
+
+        .lead { color: #d5e4ff; }
+
+        .hero-grid {
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            background: radial-gradient(circle at 20% 20%, rgba(122, 245, 155, 0.18), transparent 45%),
+                        radial-gradient(circle at 80% 30%, rgba(62, 164, 255, 0.15), transparent 35%),
+                        var(--panel);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .headshot-frame {
+            width: 180px;
+            height: 180px;
+            border-radius: 22px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, rgba(122, 245, 155, 0.18), rgba(62, 164, 255, 0.18));
+            border: 1px solid var(--border);
+            display: grid;
+            place-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .headshot-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            inset: 0;
+        }
+
+        .metric {
+            padding: 1rem 1.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            min-width: 150px;
+        }
+
+        .metric .number { font-size: 1.7rem; font-weight: 700; }
+
+        .badge-soft {
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(62, 164, 255, 0.16);
+            color: #c8e4ff;
+            border: 1px solid rgba(62, 164, 255, 0.3);
+        }
+
+        .reveal { opacity: 0; transform: translateY(22px); transition: all 0.7s ease; }
+        .reveal-visible { opacity: 1; transform: translateY(0); }
+
+        .form-control, .form-select {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            color: #fff;
+        }
+
+        .form-control:focus { border-color: var(--accent-2); box-shadow: 0 0 0 2px rgba(62, 164, 255, 0.25); }
+
+        footer { background: rgba(0, 0, 0, 0.35); border-top: 1px solid var(--border); }
+
+        #backToTop {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            display: none;
+            z-index: 999;
+            border-radius: 999px;
+            box-shadow: 0 10px 30px rgba(62, 164, 255, 0.35);
+        }
+
+        .contact-card { height: 100%; }
+
+        .timeline-line {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent), transparent);
+        }
+
+        .table-responsive { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+
+        .tagline {
+            min-height: 48px;
+            display: inline-block;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+        }
+
+        .message-counter { color: var(--muted); font-size: 0.9rem; }
+
+        @media (max-width: 767px) {
+            header#hero { padding-top: 6rem; }
+            .metric { width: 100%; }
+            .headshot-frame { width: 140px; height: 140px; }
+        }
+
+        /* Light mode (toggle) */
+        body[data-theme="day"] {
+            --bg: #f6f8fb;
+            --panel: rgba(255, 255, 255, 0.95);
+            --panel-strong: #fff;
+            --muted: #5e6a85;
+            --text: #0d1b2a;
+            --border: rgba(0, 0, 0, 0.08);
+            background: radial-gradient(1000px at 15% 20%, rgba(62, 164, 255, 0.12), transparent 40%),
+                        radial-gradient(900px at 80% 0%, rgba(122, 245, 155, 0.12), transparent 45%),
+                        #f6f8fb;
+            color: #0d1b2a;
+        }
+
+        body[data-theme="day"] .navbar {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        body[data-theme="day"] .navbar .nav-link { color: #1d2b46; }
+        body[data-theme="day"] .navbar .nav-link.active,
+        body[data-theme="day"] .navbar .nav-link:hover { color: #000; }
+        body[data-theme="day"] .navbar-brand { color: #0d1b2a; }
+
+        body[data-theme="day"] .card,
+        body[data-theme="day"] .accordion-item,
+        body[data-theme="day"] .modal-content { color: #0d1b2a; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); }
+        body[data-theme="day"] .accordion-button { background: var(--panel-strong); color: #0d1b2a; }
+        body[data-theme="day"] .accordion-button:not(.collapsed) { color: #0d1b2a; }
+
+        body[data-theme="day"] .lead { color: #1d2b46; }
+        body[data-theme="day"] .hero-grid { color: #0d1b2a; }
+        body[data-theme="day"] .metric { background: rgba(0, 0, 0, 0.03); }
+        body[data-theme="day"] a { color: #0d6efd; }
+        body[data-theme="day"] a:hover { color: #0a58ca; }
+        body[data-theme="day"] .badge-soft { background: rgba(13, 110, 253, 0.1); color: #0d1b2a; border-color: rgba(13, 110, 253, 0.2); }
+
+        .module-card {
+            border-radius: 14px;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            background: linear-gradient(160deg, rgba(62,164,255,0.14), rgba(122,245,155,0.08));
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .module-card.active { border-color: var(--accent); box-shadow: 0 10px 30px rgba(62,164,255,0.25); }
+
+        .module-card .label { font-size: 0.85rem; color: var(--muted); }
+        .module-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.06);
+            font-size: 0.85rem;
+        }
+
+        .module-card .ghost {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.09), transparent 60%);
+            right: -40px;
+            top: -60px;
+            filter: blur(4px);
+            pointer-events: none;
+        }
+
+        .pdf-frame {
+            width: 100%;
+            height: 320px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .hobby-image {
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .hobby-carousel {
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .hobby-carousel .carousel-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        /* Skill pills by type */
+    .skill-pill {
+        border-radius: 999px;
+        padding: 0.2rem 0.65rem;
+        font-size: 0.8rem;
+        border: 1px solid var(--border);
+        display: inline-flex;
+        align-items: center;
+        margin-right: 0.25rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .skill-pill-lang { background: rgba(62, 164, 255, 0.18); }   /* programming languages */
+    .skill-pill-lib  { background: rgba(122, 245, 155, 0.18); }  /* libraries / frameworks */
+    .skill-pill-tool { background: rgba(255, 193, 7, 0.18); }    /* tooling */
+    .skill-pill-core { background: rgba(214, 51, 132, 0.18); }   /* core/soft skills */
+
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="70" tabindex="0">
+
+<div class="position-fixed w-100 h-100" style="pointer-events:none; inset:0; background: radial-gradient(circle at 10% 80%, rgba(122,245,155,0.06), transparent 25%), radial-gradient(circle at 90% 20%, rgba(62,164,255,0.08), transparent 22%);"></div>
+
+<!-- NAVBAR -->
+<nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#hero">Thomas Cook</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+                <li class="nav-item"><a class="nav-link active" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#publication">Publication</a></li>
+                <li class="nav-item"><a class="nav-link" href="#hobbies">Hobbies</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item ms-lg-3">
+                    <button class="btn btn-soft btn-sm" id="themeToggle" type="button">Switch theme</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header id="hero" class="reveal">
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+                <span class="hero-chip">2025 Portfolio</span>
+                <h1 class="hero-title fw-bold mt-3">Thomas Charles Cook</h1>
+                <p class="lead mb-3 tagline" id="typewriter">BSc (Hons) Computing with Machine Learning and Artificial Intelligence student at Technological University Dublin.</p>
+                <p class="mb-4">
+                    
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <button class="btn btn-primary btn-lg js-scroll" data-target="#projects">
+                        View Projects
+                    </button>
+                    <button class="btn btn-outline-secondary btn-lg js-scroll" data-target="#contact">
+                        Contact Me
+                    </button>
+                </div>
+
+                <div class="d-flex flex-wrap gap-3 mt-4 hero-metrics">
+                    <div class="metric" data-count="4">
+                        <div class="number">0</div>
+                        <div class="text-muted">Students tutored</div>
+                    </div>
+                    <div class="metric" data-count="3.33">
+                        <div class="number">0</div>
+                        <div class="text-muted">GPA</div>
+                    </div>
+                    <div class="metric" data-count="1">
+                        <div class="number">0</div>
+                        <div class="text-muted">Years of experience</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="hero-grid p-4">
+                    <div class="headshot-frame" id="headshotFrame">
+                        <img id="headshotImage" src="headshot.jpeg" alt="Headshot" class="w-100 h-100">
+                    </div>
+                    <div class="text-center">
+                        <p class="mb-1">Based in Dublin, Ireland</p>
+                        <p class="text-muted mb-2">Open to internships, graduate and entry-level roles.</p>
+                        <span class="badge-soft">AI and ML · Agents · RAG</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about" class="reveal">
+    <div class="container">
+        <div class="section-heading">
+            <div class="accent-bar"></div>
+            <h2 class="mb-0">About Me</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-12">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <p>
+                            <p>I’m a final-year BSc (Hons) Computing with Machine Learning and Artificial Intelligence student at Technological University Dublin, with a focus on applied AI, agents, and Retrieval-Augmented Generation (RAG). I’ve worked on everything from classic ML and data analysis to building multi-agent RAG systems and LLM tooling for real-world use in a fintech setting.</p>
+
+                            <p>I've interned as an AI Software Engineer & Research Intern at Mastercard, where I’ve helped design and build an agentic RAG pipeline and contribute to research on tool-calling and retrieval in regulated, on-prem environments. On campus, I worked as a computer science tutor, supporting students with programming, databases, discrete maths, and software testing, which has made me very comfortable explaining technical ideas clearly and meeting people where they are.</p>
+                            
+                            <p>Before moving to Dublin, I studied in Italy and the US (Laguna Beach High School), played varsity tennis, and coached younger players. Outside of work and college, I’m into Formula 1, hiking, traveling, and films.</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="bg-light reveal">
+    <div class="container">
+        <div class="section-heading">
+            <div class="accent-bar"></div>
+            <h2 class="mb-0">Education</h2>
+        </div>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Technological University Dublin</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            Bachelor of Science (Honours) – Computing with Machine Learning and Artificial Intelligence
+                        </h6>
+                        <p class="card-text mb-1">August 2023 – May 2026</p>
+                        <p class="card-text"><em>Expected graduation in May 2026.</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">University of Greenwich</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            Bachelor of Science – Data Science
+                        </h6>
+                        <p class="card-text mb-1">September 2022 – June 2023</p>
+                        <p class="card-text"><em>Completed a year of study and decided to transfer to TUD.</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Laguna Beach High School</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">High School Diploma</h6>
+                        <p class="card-text mb-1">August 2021 – June 2022</p>
+                        <p class="card-text"><em>Took my first CS course in Java and played on the varsity men's singles tennis team.</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Liceo G. Marconi Sassari</h5>
+                        <p class="card-text mb-1">September 2018 – June 2021</p>
+                        <p class="card-text"><em>I was born and raised in Italy. I moved when I was 17 to the United States with my family.</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Modules & Grades with filters -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-3">
+                    <h5 class="card-title mb-0">Key Modules & Grades</h5>
+                    <div class="btn-group btn-group-sm" role="group" aria-label="Module filters">
+                        <button type="button" class="btn btn-outline-secondary module-filter active" data-filter="year2">Year 2</button>
+                        <button type="button" class="btn btn-outline-secondary module-filter" data-filter="year3">Year 3</button>
+                        <button type="button" class="btn btn-outline-secondary module-filter" data-filter="year4">Year 4</button>
+                    </div>
+                </div>
+                <div class="table-responsive col-lg-8 col-md-9 mx-auto" style="max-width: 640px;">
+                    <table class="table table-sm mb-0 text-center align-middle">
+                        <thead>
+                        <tr>
+                            <th>Module</th>
+                            <th>Grade</th>
+                        </tr>
+                        </thead>
+                        <tbody id="modulesTableBody">
+                        <!-- Year 2 -->
+                        <tr class="module-row" data-year="year2">
+                            <td>Software Development 4</td>
+                            <td>B</td>
+                        </tr>
+                        <tr class="module-row" data-year="year2">
+                            <td>Routing & Switching Essentials</td>
+                            <td>B+</td>
+                        </tr>
+                        <tr class="module-row" data-year="year2">
+                            <td>Management Science</td>
+                            <td>B+</td>
+                        </tr>
+                        <tr class="module-row" data-year="year2">
+                            <td>Database Admin & Analysis</td>
+                            <td>B+</td>
+                        </tr>
+                        <tr class="module-row" data-year="year2">
+                            <td>Information Security</td>
+                            <td>B</td>
+                        </tr>
+                        <tr class="module-row" data-year="year2">
+                            <td>Project</td>
+                            <td>B</td>
+                        </tr>
+                        <tr class="module-row" data-year="year2">
+                            <td>Software Development 3</td>
+                            <td>B</td>
+                        </tr>
+                        <tr class="module-row" data-year="year2">
+                            <td>Software Quality Assurance & Testing</td>
+                            <td>B+</td>
+                        </tr>
+                        <tr class="module-row" data-year="year2">
+                            <td>Network Fundamentals</td>
+                            <td>B+</td>
+                        </tr>
+                        <tr class="module-row" data-year="year2">
+                            <td>Advanced Database Technologies</td>
+                            <td>B+</td>
+                        </tr>
+                        <tr class="module-row" data-year="year2">
+                            <td>Discrete Mathematics 2</td>
+                            <td>A</td>
+                        </tr>
+                        <tr class="module-row" data-year="year2">
+                            <td>Client-side Web Development</td>
+                            <td>B</td>
+                        </tr>
+                        <!-- Year 3 -->
+                        <tr class="module-row" data-year="year3">
+                            <td>Server-side Web Development</td>
+                            <td>B-</td>
+                        </tr>
+                        <tr class="module-row" data-year="year3">
+                            <td>Operating Systems</td>
+                            <td>B</td>
+                        </tr>
+                        <tr class="module-row" data-year="year3">
+                            <td>Cloud Service & Distributed Computing</td>
+                            <td>B</td>
+                        </tr>
+                        <tr class="module-row" data-year="year3">
+                            <td>Big Data Technologies</td>
+                            <td>B+</td>
+                        </tr>
+                        <tr class="module-row" data-year="year3">
+                            <td>Data Structures & Algorithms</td>
+                            <td>B</td>
+                        </tr>
+                        <tr class="module-row" data-year="year3">
+                            <td>Data Analysis</td>
+                            <td>B</td>
+                        </tr>
+                        <!-- Year 4 -->
+                        <tr class="module-row" data-year="year4">
+                            <td>Applied Machine Learning</td>
+                            <td>Pending</td>
+                        </tr>
+                        <tr class="module-row" data-year="year4">
+                            <td>AI Project (thesis)</td>
+                            <td>Pending</td>
+                        </tr>
+                        <tr class="module-row" data-year="year4">
+                            <td>Interactive Media Design and Visualisation</td>
+                            <td>Pending</td>
+                        </tr>
+                        <tr class="module-row" data-year="year4">
+                            <td>Data Analysis and Programming</td>
+                            <td>Pending</td>
+                        </tr>
+                        <tr class="module-row" data-year="year4">
+                            <td>DevOps</td>
+                            <td>Pending</td>
+                        </tr>
+                        <tr class="module-row" data-year="year4">
+                            <td>Computational Linguistics</td>
+                            <td>Pending</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-muted small mb-0 mt-2" id="modulesHint">Filtering Year 2 modules.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="reveal">
+    <div class="container">
+        <div class="section-heading">
+            <div class="accent-bar"></div>
+            <h2 class="mb-0">Experience</h2>
+        </div>
+
+        <div class="accordion" id="experienceAccordion">
+
+            <!-- Mastercard AI Software Engineer and Research Intern -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingMastercard">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseMastercard" aria-expanded="true" aria-controls="collapseMastercard">
+                        Mastercard – AI Software Engineer and Research Intern
+                    </button>
+                </h2>
+                <div id="collapseMastercard" class="accordion-collapse collapse show"
+                     aria-labelledby="headingMastercard" data-bs-parent="#experienceAccordion">
+                    <div class="accordion-body">
+                        <p class="mb-1">
+                            <strong>February 2025 – August 2025</strong><br>
+                            Dublin, Ireland
+                        </p>
+                        <p class="mb-0">
+                            <em>
+                            <ul class="mb-0">
+                                <li>
+                                    Built an agentic RAG system end-to-end — from data ingestion and schema normalization to retrieval, re-ranking, and grounded answer generation — along with a reproducible on-prem pipeline.
+                                </li>
+                                <li>
+                                    Designed an evaluation suite (coverage, Hit@k, semantic accuracy, latency) that showed clear improvements over a baseline and supported reliable handover through runbooks and lightweight tests.
+                                </li>
+                                <li>
+                                    Delivered a live demo to senior leadership and authored a published research paper documenting the architecture, methods, and results, shaping further internal adoption.
+                                </li>
+                            </ul>
+                            </em>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tutor -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTutor">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTutor" aria-expanded="false" aria-controls="collapseTutor">
+                        TU Dublin Computer Science – Computer Science Tutor
+                    </button>
+                </h2>
+                <div id="collapseTutor" class="accordion-collapse collapse"
+                     aria-labelledby="headingTutor" data-bs-parent="#experienceAccordion">
+                    <div class="accordion-body">
+                        <p class="mb-1">
+                            <strong>September 2024 – January 2025</strong><br>
+                            Dublin, County Dublin, Ireland
+                        </p>
+                        <ul class="mb-0">
+                            <li>Tutored First Year and Second Year students.</li>
+                            <li>Supported modules in Programming, Databases, Discrete Mathematics, and
+                                Software Testing and Quality Assurance.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assistant Tennis Coach -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTennis">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTennis" aria-expanded="false" aria-controls="collapseTennis">
+                        Freelance – Assistant Tennis Coach
+                    </button>
+                </h2>
+                <div id="collapseTennis" class="accordion-collapse collapse"
+                     aria-labelledby="headingTennis" data-bs-parent="#experienceAccordion">
+                    <div class="accordion-body">
+                        <p class="mb-1">
+                            <strong>May 2024 – September 2024</strong><br>
+                            Laguna Beach, California
+                        </p>
+                        <p class="mb-0">
+                            Assistant Tennis Coach (freelance).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="bg-light reveal">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-3">
+            <div class="section-heading mb-0">
+                <div class="accent-bar"></div>
+                <h2 class="mb-0">Projects</h2>
+            </div>
+        </div>
+        <p class="text-muted">
+            This section will be updated with detailed project descriptions and links as they are completed.
+        </p>
+
+        <div class="row g-3">
+            <div class="col-md-6 project-card" data-year="year2">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Year 2 Project</h5>
+                        <div class="flex-grow-1 overflow-auto" style="max-height: 260px;">
+                            <p class="card-text">
+                                I built a full Django web app for a luxury car dealership, covering finance tools, rental processing, and automated user notifications. The project uses Django’s MVT architecture, custom models and views, Django Admin, and Django Signals for event-driven updates.
+                            </p>
+                            <p class="mb-1"><strong>Finance Module</strong> – Buying-power and monthly-payment calculators integrated into vehicle pages with backend logic for loan and interest calculations.</p>
+                            <p class="mb-1"><strong>Rental Module</strong> – Full rental workflow: date selection, insurance toggles, pricing, and a “Rent History” page, with admins approving or rejecting requests through Django Admin.</p>
+                            <p class="mb-2"><strong>Notification System</strong> – Event-driven updates using Django Signals.</p>
+                            <p class="fw-semibold text-warning mb-0">Link to project not available.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 project-card" data-year="year4">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Final Year Project</h5>
+                        <p class="card-text">
+                            My work so far on my thesis.
+                        </p>
+                        <iframe class="pdf-frame flex-grow-1" src="thesis.pdf" title="Final year project PDF preview" loading="lazy" scrolling="yes"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS & LANGUAGES -->
+<section id="skills" class="reveal">
+    <div class="container">
+        <div class="section-heading mb-3">
+            <div class="accent-bar"></div>
+            <h2 class="mb-0">Skills & Languages</h2>
+        </div>
+
+        <div class="row g-3">
+            <!-- Technical skills -->
+            <div class="col-md-7">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Technical Skills</h5>
+
+                        <!-- Programming languages -->
+                        <h6 class="text-muted mb-1">Languages</h6>
+                        <p class="mb-3">
+                            <span class="badge skill-pill skill-pill-lang skill-item" data-category="language">Python</span>
+                            <span class="badge skill-pill skill-pill-lang skill-item" data-category="language">Java</span>
+                            <span class="badge skill-pill skill-pill-lang skill-item" data-category="language">C++</span>
+                        </p>
+
+                        <!-- Libraries / frameworks -->
+                        <h6 class="text-muted mb-1">Libraries & Frameworks</h6>
+                        <p class="mb-3">
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">NumPy</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">SciPy</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">pandas</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">Matplotlib</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">vLLM</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">LangChain</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">LangGraph</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">LangGraph Agents</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">LangGraph Toolkit</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">Chroma</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">Pydantic</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">LlamaIndex</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">Seaborn</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">Plotly</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">scikit-learn</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">XGBoost</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">LightGBM</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">CatBoost</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">PyTorch</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">TensorFlow</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">Keras</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">Hugging Face Transformers</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">spaCy</span>
+                            <span class="badge skill-pill skill-pill-lib skill-item" data-category="library">NLTK</span>
+                        </p>
+
+                        <!-- Tools -->
+                        <h6 class="text-muted mb-1">Tools</h6>
+                        <p class="mb-3">
+                            <span class="badge skill-pill skill-pill-tool skill-item" data-category="tools">Tableau</span>
+                            <span class="badge skill-pill skill-pill-tool skill-item" data-category="tools">Excel</span>
+                            <span class="badge skill-pill skill-pill-tool skill-item" data-category="tools">Atlassian Suite (Confluence, Jira)</span>
+                            <span class="badge skill-pill skill-pill-tool skill-item" data-category="tools">Git</span>
+                            <span class="badge skill-pill skill-pill-tool skill-item" data-category="tools">Docker</span>
+                            <span class="badge skill-pill skill-pill-tool skill-item" data-category="tools">Kubernetes</span>
+                        </p>
+
+                        <!-- Core / soft skills -->
+                        <h6 class="text-muted mb-1">Core Skills</h6>
+                        <p class="mb-0">
+                            <span class="badge skill-pill skill-pill-core skill-item" data-category="core">Technical presentations</span>
+                            <span class="badge skill-pill skill-pill-core skill-item" data-category="core">Research writing</span>
+                            <span class="badge skill-pill skill-pill-core skill-item" data-category="core">Data storytelling</span>
+                            <span class="badge skill-pill skill-pill-core skill-item" data-category="core">Mentoring & tutoring</span>
+                            <span class="badge skill-pill skill-pill-core skill-item" data-category="core">Stakeholder communication</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spoken languages -->
+            <div class="col-md-5">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Languages</h5>
+                        <ul class="mb-0 list-unstyled">
+                            <li class="skill-item mb-1" data-category="language">
+                                Italian – Native
+                            </li>
+                            <li class="skill-item mb-1" data-category="language">
+                                English – Bilingual
+                            </li>
+                            <li class="skill-item" data-category="language">
+                                French – Intermediate
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- PUBLICATION -->
+<section id="publication" class="bg-light reveal">
+    <div class="container">
+        <div class="section-heading">
+            <div class="accent-bar"></div>
+            <h2 class="mb-0">Publications</h2>
+        </div>
+        <div class="accordion" id="publicationAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingRAG">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseRAG" aria-expanded="false" aria-controls="collapseRAG">
+                        Retrieval Augmented Generation (RAG) for Fintech: Agentic Design and Evaluation
+                    </button>
+                </h2>
+                <div id="collapseRAG" class="accordion-collapse collapse"
+                     aria-labelledby="headingRAG" data-bs-parent="#publicationAccordion">
+                    <div class="accordion-body">
+                        <p class="mb-3">
+                            Retrieval-Augmented Generation (RAG) systems often face limitations in specialized domains such as fintech, where domain-specific ontologies, dense terminology, and acronyms complicate effective retrieval and synthesis. This paper introduces an agentic RAG architecture designed to address these challenges through a modular pipeline of specialized agents. The proposed system supports intelligent query reformulation, iterative sub-query decomposition guided by keyphrase extraction, contextual acronym resolution, and cross-encoder-based context re-ranking. We evaluate our approach against a standard RAG baseline using a curated dataset of 85 question--answer--reference triples derived from an enterprise fintech knowledge base. Experimental results demonstrate that the agentic RAG system outperforms the baseline in retrieval precision and relevance, albeit with increased latency. These findings suggest that structured, multi-agent methodologies offer a promising direction for enhancing retrieval robustness in complex, domain-specific settings.
+                        </p>
+                        <a class="btn btn-primary" href="https://www.researchgate.net/publication/397040674_Retrieval_Augmented_Generation_RAG_for_Fintech_Agentic_Design_and_Evaluation" target="_blank" rel="noreferrer">Read more</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingScaleCall">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseScaleCall" aria-expanded="false" aria-controls="collapseScaleCall">
+                        ScaleCall — Agentic Tool Calling at Scale for Fintech: Challenges, Methods, and Deployment Insights
+                    </button>
+                </h2>
+                <div id="collapseScaleCall" class="accordion-collapse collapse"
+                     aria-labelledby="headingScaleCall" data-bs-parent="#publicationAccordion">
+                    <div class="accordion-body">
+                        <p class="mb-3">
+                            While Large Language Models (LLMs) excel at tool calling, deploying these capabilities in regulated enterprise environments such as fintech presents unique challenges due to on-premises constraints, regulatory compliance requirements, and the need to disambiguate large, functionally overlapping toolsets. In this paper, we present a comprehensive study of tool retrieval methods for enterprise environments through the development and deployment of ScaleCall, a prototype tool-calling framework within Mastercard designed for orchestrating internal APIs and automating data engineering workflows. We systematically evaluate embedding-based retrieval, prompt-based listwise ranking, and hybrid approaches, revealing that method effectiveness depends heavily on domain-specific factors rather than inherent algorithmic superiority. Through empirical investigation on enterprise-derived benchmarks, we find that embedding-based methods offer superior latency for large tool repositories, while listwise ranking provides better disambiguation for overlapping functionalities, with hybrid approaches showing promise in specific contexts. We integrate our findings into ScaleCall's flexible architecture and validate the framework through real-world deployment in Mastercard's regulated environment. Our work provides practical insights into the trade-offs between retrieval accuracy, computational efficiency, and operational requirements, contributing to the understanding of tool-calling system design for enterprise applications in regulated industries.
+                        </p>
+                        <a class="btn btn-primary" href="https://arxiv.org/abs/2511.00074" target="_blank" rel="noreferrer">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies" class="reveal">
+    <div class="container">
+        <div class="section-heading">
+            <div class="accent-bar"></div>
+            <h2 class="mb-0">Hobbies & Interests</h2>
+        </div>
+        <div class="row g-3">
+            <!-- F1 & Cars -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Formula 1 & Cars</h5>
+
+                        <!-- Carousel for cars -->
+                        <div id="carsCarousel" class="carousel slide hobby-carousel" data-bs-ride="false">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="cars/car1.jpeg" class="d-block w-100" alt="Car photo 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="cars/car2.jpeg" class="d-block w-100" alt="Car photo 2">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="cars/car3.jpeg" class="d-block w-100" alt="Car photo 3">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="cars/car4.jpeg" class="d-block w-100" alt="Car photo 4">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="cars/car5.jpeg" class="d-block w-100" alt="Car photo 5">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carsCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carsCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+
+                        <p class="mb-0">
+                            I’ve followed Formula 1 for years and I’m fascinated by how data, strategy, and engineering decisions translate into performance on track. I haven't missed a single race since 2012. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tennis -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Tennis</h5>
+                        <p class="mb-0">
+                            I grew up playing tennis in Italy at age 5, and later competed for my high school team in Laguna Beach, where I played varsity men’s singles. I’ve also worked as an assistant tennis coach for children and young adults at the intermediate and advanced levels, which taught me how to explain concepts clearly.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movies & Letterboxd -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Movies & Letterboxd</h5>
+                        <p>
+                            I love films that balance good writing with strong visual style, and I track what I watch on Letterboxd. I tend to gravitate toward character-driven stories, grounded sci-fi, and anything with good pacing and atmosphere.
+                        </p>
+                        <a href="https://boxd.it/4Sbcn" class="btn btn-outline-secondary btn-sm mt-2" target="_blank" rel="noreferrer">
+                            View my Letterboxd
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Travel & Hiking -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Travel & Hiking</h5>
+
+                        <!-- Carousel for hiking/travel with flip-cards -->
+                        <div id="hikingCarousel" class="carousel slide hobby-carousel" data-bs-ride="false">
+                            <div class="carousel-inner">
+
+                                <div class="carousel-item active">
+                                    <div class="flip-card">
+                                        <div class="flip-inner">
+                                            <div class="flip-front">
+                                                <img src="hiking-travel/amsterdam.jpeg" class="d-block w-100" alt="Amsterdam, Netherlands">
+                                            </div>
+                                            <div class="flip-back d-flex align-items-center justify-content-center">
+                                                <p class="mb-0 small text-center">Amsterdam, NED</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="flip-card">
+                                        <div class="flip-inner">
+                                            <div class="flip-front">
+                                                <img src="hiking-travel/amsterdam2.jpeg" class="d-block w-100" alt="Amsterdam, Netherlands">
+                                            </div>
+                                            <div class="flip-back d-flex align-items-center justify-content-center">
+                                                <p class="mb-0 small text-center">Amsterdam, NED</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="flip-card">
+                                        <div class="flip-inner">
+                                            <div class="flip-front">
+                                                <img src="hiking-travel/alghero-bombarde.jpeg" class="d-block w-100" alt="Alghero – Le Bombarde, Italy">
+                                            </div>
+                                            <div class="flip-back d-flex align-items-center justify-content-center">
+                                                <p class="mb-0 small text-center">Alghero – Le Bombarde, ITA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="flip-card">
+                                        <div class="flip-inner">
+                                            <div class="flip-front">
+                                                <img src="hiking-travel/caprera1.jpeg" class="d-block w-100" alt="Caprera, Italy">
+                                            </div>
+                                            <div class="flip-back d-flex align-items-center justify-content-center">
+                                                <p class="mb-0 small text-center">Caprera, ITA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="flip-card">
+                                        <div class="flip-inner">
+                                            <div class="flip-front">
+                                                <img src="hiking-travel/caprera2.jpeg" class="d-block w-100" alt="Caprera, Italy">
+                                            </div>
+                                            <div class="flip-back d-flex align-items-center justify-content-center">
+                                                <p class="mb-0 small text-center">Caprera, ITA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="flip-card">
+                                        <div class="flip-inner">
+                                            <div class="flip-front">
+                                                <img src="hiking-travel/corsica.jpeg" class="d-block w-100" alt="Corsica, France">
+                                            </div>
+                                            <div class="flip-back d-flex align-items-center justify-content-center">
+                                                <p class="mb-0 small text-center">Corsica, FRA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="flip-card">
+                                        <div class="flip-inner">
+                                            <div class="flip-front">
+                                                <img src="hiking-travel/florence.jpeg" class="d-block w-100" alt="Florence, Italy">
+                                            </div>
+                                            <div class="flip-back d-flex align-items-center justify-content-center">
+                                                <p class="mb-0 small text-center">Florence, ITA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="flip-card">
+                                        <div class="flip-inner">
+                                            <div class="flip-front">
+                                                <img src="hiking-travel/matera.JPG" class="d-block w-100" alt="Matera, Italy">
+                                            </div>
+                                            <div class="flip-back d-flex align-items-center justify-content-center">
+                                                <p class="mb-0 small text-center">Matera, ITA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="flip-card">
+                                        <div class="flip-inner">
+                                            <div class="flip-front">
+                                                <img src="hiking-travel/napoli.jpeg" class="d-block w-100" alt="Naples, Italy">
+                                            </div>
+                                            <div class="flip-back d-flex align-items-center justify-content-center">
+                                                <p class="mb-0 small text-center">Naples, ITA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="flip-card">
+                                        <div class="flip-inner">
+                                            <div class="flip-front">
+                                                <img src="hiking-travel/roma.jpeg" class="d-block w-100" alt="Rome, Italy">
+                                            </div>
+                                            <div class="flip-back d-flex align-items-center justify-content-center">
+                                                <p class="mb-0 small text-center">Rome, ITA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="flip-card">
+                                        <div class="flip-inner">
+                                            <div class="flip-front">
+                                                <img src="hiking-travel/tavolara.jpeg" class="d-block w-100" alt="Tavolara, Italy">
+                                            </div>
+                                            <div class="flip-back d-flex align-items-center justify-content-center">
+                                                <p class="mb-0 small text-center">Tavolara, ITA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="flip-card">
+                                        <div class="flip-inner">
+                                            <div class="flip-front">
+                                                <img src="hiking-travel/stanislaus1.jpeg" class="d-block w-100" alt="Stanislaus National Forest, USA">
+                                            </div>
+                                            <div class="flip-back d-flex align-items-center justify-content-center">
+                                                <p class="mb-0 small text-center">Stanislaus National Forest, USA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="flip-card">
+                                        <div class="flip-inner">
+                                            <div class="flip-front">
+                                                <img src="hiking-travel/stanislaus2.jpeg" class="d-block w-100" alt="Stanislaus National Forest, USA">
+                                            </div>
+                                            <div class="flip-back d-flex align-items-center justify-content-center">
+                                                <p class="mb-0 small text-center">Stanislaus National Forest, USA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="flip-card">
+                                        <div class="flip-inner">
+                                            <div class="flip-front">
+                                                <img src="hiking-travel/stanislaus3.jpeg" class="d-block w-100" alt="Stanislaus National Forest, USA">
+                                            </div>
+                                            <div class="flip-back d-flex align-items-center justify-content-center">
+                                                <p class="mb-0 small text-center">Stanislaus National Forest, USA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="flip-card">
+                                        <div class="flip-inner">
+                                            <div class="flip-front">
+                                                <img src="hiking-travel/tahoe.jpeg" class="d-block w-100" alt="Lake Tahoe, USA">
+                                            </div>
+                                            <div class="flip-back d-flex align-items-center justify-content-center">
+                                                <p class="mb-0 small text-center">Lake Tahoe, USA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="flip-card">
+                                        <div class="flip-inner">
+                                            <div class="flip-front">
+                                                <img src="hiking-travel/tahoe2.jpeg" class="d-block w-100" alt="Lake Tahoe, USA">
+                                            </div>
+                                            <div class="flip-back d-flex align-items-center justify-content-center">
+                                                <p class="mb-0 small text-center">Lake Tahoe, USA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="flip-card">
+                                        <div class="flip-inner">
+                                            <div class="flip-front">
+                                                <img src="hiking-travel/san-fransico.jpeg" class="d-block w-100" alt="San Francisco, USA">
+                                            </div>
+                                            <div class="flip-back d-flex align-items-center justify-content-center">
+                                                <p class="mb-0 small text-center">San Francisco, USA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="flip-card">
+                                        <div class="flip-inner">
+                                            <div class="flip-front">
+                                                <img src="hiking-travel/washington.jpeg" class="d-block w-100" alt="Washington D.C., USA">
+                                            </div>
+                                            <div class="flip-back d-flex align-items-center justify-content-center">
+                                                <p class="mb-0 small text-center">Washington D.C., USA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="flip-card">
+                                        <div class="flip-inner">
+                                            <div class="flip-front">
+                                                <img src="hiking-travel/washington2.jpeg" class="d-block w-100" alt="Washington D.C., USA">
+                                            </div>
+                                            <div class="flip-back d-flex align-items-center justify-content-center">
+                                                <p class="mb-0 small text-center">Washington D.C., USA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="flip-card">
+                                        <div class="flip-inner">
+                                            <div class="flip-front">
+                                                <img src="hiking-travel/washington3.jpeg" class="d-block w-100" alt="Washington D.C., USA">
+                                            </div>
+                                            <div class="flip-back d-flex align-items-center justify-content-center">
+                                                <p class="mb-0 small text-center">Washington D.C., USA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#hikingCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#hikingCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+
+                        <p class="mb-0 mt-2 text-muted small">
+                            Click any photo to flip and see the location.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- CONTACT -->
+<section id="contact" class="bg-light reveal">
+    <div class="container">
+        <div class="section-heading">
+            <div class="accent-bar"></div>
+            <h2 class="mb-0">Contact Me</h2>
+        </div>
+        <div class="row g-4">
+            <!-- Contact form -->
+            <div class="col-md-7">
+                <div class="card shadow-sm contact-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Send a message</h5>
+
+                        <div id="contactAlert" class="alert d-none" role="alert"></div>
+
+                        <form id="contactForm" novalidate>
+                            <div class="mb-3">
+                                <label for="nameInput" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="nameInput" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="emailInput" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="emailInput" required>
+                            </div>
+                            <div class="mb-2">
+                                <label for="messageInput" class="form-label">Message</label>
+                                <textarea class="form-control" id="messageInput" rows="4" maxlength="500"></textarea>
+                                <div class="message-counter" id="messageCounter">0 / 500</div>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-2">
+                                Send (demo)
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Static contact info + modal trigger -->
+            <div class="col-md-5">
+                <div class="card shadow-sm contact-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Contact Details</h5>
+                        <p class="mb-1"><strong>Phone:</strong> 0838477468</p>
+                        <p class="mb-1"><strong>Email:</strong> <a href="mailto:cook4299@gmail.com">cook4299@gmail.com</a></p>
+                        <p class="mb-3">
+                            <strong>LinkedIn:</strong>
+                            <a href="https://www.linkedin.com/in/thomas-charles-c-1ab6b61bb" target="_blank">
+                                thomas-charles-c-1ab6b61bb
+                            </a>
+                        </p>
+                        <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#contactModal">
+                            Open Contact Modal
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-3 border-top">
+    <div class="container text-center">
+        <small class="text-muted">
+            &copy; <span id="yearSpan"></span> Thomas Charles Cook. All rights reserved.
+        </small>
+    </div>
+</footer>
+
+<!-- Back to top button -->
+<button id="backToTop" class="btn btn-primary" aria-label="Back to top">↑</button>
+
+<!-- Contact Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="contactModalLabel">Contact Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-1"><strong>Phone:</strong> 0838477468</p>
+                <p class="mb-1"><strong>Email:</strong> <a href="mailto:cook4299@gmail.com">cook4299@gmail.com</a></p>
+                <p class="mb-0">
+                    <strong>LinkedIn:</strong>
+                    <a href="https://www.linkedin.com/in/thomas-charles-c-1ab6b61bb" target="_blank">
+                        thomas-charles-c-1ab6b61bb
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS -->
+<script>
+    // Smooth scroll for hero buttons and any .js-scroll elements
+    document.querySelectorAll('.js-scroll').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            const targetSelector = btn.getAttribute('data-target');
+            if (!targetSelector) return;
+            const target = document.querySelector(targetSelector);
+            if (target) {
+                target.scrollIntoView({behavior: 'smooth'});
+            }
+        });
+    });
+
+    // Smooth scroll for navbar links
+    document.querySelectorAll('a.nav-link[href^="#"]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            const href = link.getAttribute('href');
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                const offset = document.querySelector('#mainNavbar').offsetHeight;
+                const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - offset + 1;
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Back to top visibility
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 300) {
+            backToTop.style.display = 'block';
+        } else {
+            backToTop.style.display = 'none';
+        }
+    });
+    backToTop.addEventListener('click', function () {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+
+    // Simple contact form validation (client-side only)
+    const contactForm = document.getElementById('contactForm');
+    const contactAlert = document.getElementById('contactAlert');
+
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = document.getElementById('nameInput').value.trim();
+        const email = document.getElementById('emailInput').value.trim();
+
+        if (!name || !email || !email.includes('@')) {
+            contactAlert.className = 'alert alert-danger';
+            contactAlert.textContent = 'Please enter your name and a valid email address.';
+            contactAlert.classList.remove('d-none');
+            return;
+        }
+
+        contactAlert.className = 'alert alert-success';
+        contactAlert.textContent = 'Thank you! This is a demo form; no message was actually sent.';
+        contactAlert.classList.remove('d-none');
+
+        contactForm.reset();
+        updateMessageCounter();
+    });
+
+    // Module filter (table rows)
+    const moduleFilterButtons = document.querySelectorAll('.module-filter');
+    const moduleRows = document.querySelectorAll('.module-row');
+    const modulesHint = document.getElementById('modulesHint');
+
+    function filterModules(year) {
+        moduleRows.forEach((row) => {
+            if (row.getAttribute('data-year') === year) {
+                row.classList.remove('d-none');
+            } else {
+                row.classList.add('d-none');
+            }
+        });
+        if (modulesHint) {
+            const label = year.replace('year', 'Year ');
+            modulesHint.textContent = `Filtering ${label} modules.`;
+        }
+    }
+
+    moduleFilterButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            moduleFilterButtons.forEach((b) => b.classList.remove('active'));
+            btn.classList.add('active');
+            filterModules(btn.getAttribute('data-filter'));
+        });
+    });
+
+    // Default to Year 2
+    filterModules('year2');
+
+    // Skills filter
+    const skillsFilterButtons = document.querySelectorAll('.skills-filter');
+    const skillItems = document.querySelectorAll('.skill-item');
+
+    skillsFilterButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            const filter = btn.getAttribute('data-filter');
+
+            skillsFilterButtons.forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+
+            skillItems.forEach(function (item) {
+                const categories = item.getAttribute('data-category') || '';
+                if (filter === 'all' || categories.split(' ').includes(filter)) {
+                    item.classList.remove('d-none');
+                } else {
+                    item.classList.add('d-none');
+                }
+            });
+        });
+    });
+
+    // Footer year
+    document.getElementById('yearSpan').textContent = new Date().getFullYear();
+
+    // Typewriter effect for the hero tagline
+    const typewriterEl = document.getElementById('typewriter');
+    const phrases = [
+        'BSc (Hons) Computing with Machine Learning and Artificial Intelligence student at Technological University Dublin.',
+        'RAG builder, evaluation-first engineer, and curious tutor.',
+        'I connect data, design, and delivery to make ideas usable.'
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function runTypewriter() {
+        const current = phrases[phraseIndex];
+        if (!deleting && charIndex <= current.length) {
+            typewriterEl.textContent = current.slice(0, charIndex++);
+        } else if (deleting && charIndex >= 0) {
+            typewriterEl.textContent = current.slice(0, charIndex--);
+        }
+
+        if (charIndex === current.length + 10) {
+            deleting = true;
+        }
+
+        if (deleting && charIndex === 0) {
+            deleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+        }
+
+        const delay = deleting ? 30 : 70;
+        setTimeout(runTypewriter, delay);
+    }
+    runTypewriter();
+
+    // Intersection observer for reveals
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal-visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Counters animate when visible
+    const counters = document.querySelectorAll('[data-count]');
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = Number(entry.target.dataset.count || 0);
+                let current = 0;
+                const step = Math.max(1, Math.floor(target / 80));
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    entry.target.querySelector('.number').textContent = current;
+                }, 18);
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.6 });
+
+    counters.forEach(c => counterObserver.observe(c));
+
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const rootBody = document.body;
+    const savedTheme = localStorage.getItem('tc-theme');
+    if (savedTheme === 'day') {
+        rootBody.setAttribute('data-theme', 'day');
+    }
+    function setTheme(nextTheme) {
+        if (nextTheme === 'day') {
+            rootBody.setAttribute('data-theme', 'day');
+            themeToggle.textContent = 'Switch to night';
+        } else {
+            rootBody.removeAttribute('data-theme');
+            themeToggle.textContent = 'Switch to day';
+        }
+        localStorage.setItem('tc-theme', nextTheme === 'day' ? 'day' : 'night');
+    }
+    setTheme(savedTheme === 'day' ? 'day' : 'night');
+
+    themeToggle.addEventListener('click', () => {
+        const isDay = rootBody.getAttribute('data-theme') === 'day';
+        setTheme(isDay ? 'night' : 'day');
+    });
+
+    const headshotImage = document.getElementById('headshotImage');
+    headshotImage?.addEventListener('error', () => {
+        headshotImage.classList.add('d-none');
+    });
+
+    // Contact message counter
+    const messageInput = document.getElementById('messageInput');
+    const messageCounter = document.getElementById('messageCounter');
+    function updateMessageCounter() {
+        messageCounter.textContent = `${messageInput.value.length} / ${messageInput.maxLength}`;
+    }
+    messageInput.addEventListener('input', updateMessageCounter);
+    updateMessageCounter();
+
+</script>
+
+</body>
+</html>
