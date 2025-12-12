@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Site Details – Thomas Cook Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+</head>
+<body class="bg-dark text-light">
+<div class="container py-5">
+  <h1 class="mb-4">Bootstrap Features, Custom Code &amp; Hosting</h1>
+
+  <!-- Overall layout -->
+  <h2 class="h4 mt-4">Overall layout (index.html)</h2>
+  <p>
+    The portfolio is a single-page site built with the Bootstrap grid system. Sections are organised as
+    <code>&lt;section&gt;</code> blocks for About, Education, Experience, Projects, Skills &amp; Languages,
+    Publications, Hobbies and Contact. The <code>&lt;body&gt;</code> tag uses
+    <code>data-bs-spy="scroll"</code> and <code>data-bs-target="#mainNavbar"</code> so Bootstrap Scrollspy
+    can highlight the active nav link while scrolling.
+  </p>
+
+  <!-- Bootstrap components -->
+  <h2 class="h4 mt-4">Bootstrap components used</h2>
+  <ul>
+    <li>
+      <strong>Navbar</strong> – A fixed-top, responsive navbar
+      (<code>#mainNavbar</code>) with brand, collapsible menu and a “Grading” pill link to this page.
+    </li>
+    <li>
+      <strong>Grid system</strong> – <code>.container</code>, <code>.row</code> and
+      <code>.col-*</code> classes used to lay out the hero, cards, skills, tables and contact section across
+      desktop and mobile.
+    </li>
+    <li>
+      <strong>Cards</strong> – <code>.card</code> components are used for the About, Education entries,
+      Experience accordion bodies, Projects, Skills, Hobbies and Contact panels, with custom “glass”
+      styling applied via CSS.
+    </li>
+    <li>
+      <strong>Buttons &amp; button groups</strong> – Standard Bootstrap buttons
+      (<code>.btn</code>, <code>.btn-primary</code>, <code>.btn-outline-secondary</code>) plus a
+      <code>.btn-group</code> in the Education section to filter the modules table by year.
+    </li>
+    <li>
+      <strong>Badges</strong> – Skill tags are implemented as customised Bootstrap badges
+      (<code>.badge</code> with extra <code>.skill-pill</code> classes) for languages, libraries, tools and core skills.
+    </li>
+    <li>
+      <strong>Accordion</strong> – Two separate accordions (<code>#experienceAccordion</code> and
+      <code>#publicationAccordion</code>) are used for Experience and Publications. Their expand/collapse
+      behaviour is handled by Bootstrap’s JS.
+    </li>
+    <li>
+      <strong>Carousels</strong> – Two carousels (<code>#carsCarousel</code> and
+      <code>#hikingCarousel</code>) display hobby images with previous/next controls and multiple slides.
+    </li>
+    <li>
+      <strong>Table &amp; table-responsive</strong> – A responsive, centred table of key modules and grades
+      inside <code>.table-responsive</code>, styled to match the dark / glass theme.
+    </li>
+    <li>
+      <strong>Forms</strong> – The Contact section uses Bootstrap form controls
+      (<code>.form-control</code>, <code>.form-label</code>) and layout for the name, email and message
+      fields.
+    </li>
+    <li>
+      <strong>Alerts</strong> – A hidden Bootstrap <code>.alert</code> (<code>#contactAlert</code>) is
+      shown with <code>.alert-success</code> or <code>.alert-danger</code> classes after contact-form
+      validation.
+    </li>
+    <li>
+      <strong>Modal</strong> – The “Open Contact Modal” button uses a Bootstrap modal
+      (<code>#contactModal</code>) to show phone, email and LinkedIn details.
+    </li>
+    <li>
+      <strong>Utility classes</strong> – Bootstrap spacing, flexbox, alignment and text utilities
+      (e.g. <code>.mb-3</code>, <code>.d-flex</code>, <code>.align-items-center</code>,
+      <code>.text-center</code>, <code>.visually-hidden</code>) are used throughout to control layout and
+      accessibility.
+    </li>
+  </ul>
+
+  <!-- Custom CSS -->
+  <h2 class="h4 mt-4">Custom CSS &amp; theming</h2>
+  <ul>
+    <li>
+      <strong>CSS variables and themes</strong> – Colour, border and shadow tokens are defined on
+      <code>:root</code> and overridden when <code>body[data-theme="day"]</code> is present, providing a
+      light and dark theme without changing the HTML.
+    </li>
+    <li>
+      <strong>Glassmorphism &amp; gradients</strong> – The background uses layered radial gradients and a
+      fixed overlay div to create a soft glow. Cards, the navbar and the hero panel use semi-transparent
+      backgrounds, borders, blur and box-shadow for a glass effect.
+    </li>
+    <li>
+      <strong>Skill pills &amp; badges</strong> – Custom <code>.skill-pill-*</code> classes colour-code
+      different skill categories (languages, libraries, tools, core skills) on top of the base
+      Bootstrap badge styling.
+    </li>
+    <li>
+      <strong>Animations &amp; reveal</strong> – Sections with <code>.reveal</code> start transparent and
+      translated, then transition to <code>.reveal-visible</code> when scrolled into view, giving a smooth
+      section entrance animation.
+    </li>
+    <li>
+      <strong>Hero metrics &amp; layout</strong> – The hero section uses a custom “hero grid” card, metric
+      tiles and a gradient headshot frame.
+    </li>
+  </ul>
+
+  <!-- Custom JS -->
+  <h2 class="h4 mt-4">Custom JavaScript features</h2>
+  <ul>
+    <li>
+      <strong>Smooth scrolling</strong> – The “Contact Me” button (<code>.js-scroll</code>) and all navbar
+      links that point to section IDs use <code>scrollIntoView</code> / <code>window.scrollTo</code> with an
+      offset for the fixed navbar, giving smooth scrolling between sections.
+    </li>
+    <li>
+      <strong>Back-to-top button</strong> – A fixed back-to-top button (<code>#backToTop</code>) appears
+      after scrolling down the page and scrolls smoothly back to the top when clicked.
+    </li>
+    <li>
+      <strong>Typewriter hero tagline</strong> – The hero tagline (<code>#typewriter</code>) cycles through
+      three phrases stored in a <code>phrases</code> array. A custom typewriter loop adds and removes
+      characters to simulate typing and deleting.
+    </li>
+    <li>
+      <strong>Animated KPI counters</strong> – Metric tiles in the hero (<code>[data-count]</code>) use an
+      <code>IntersectionObserver</code> to start a count-up animation the first time they enter the viewport.
+      The logic handles plain numbers (e.g. <code>2</code>), decimals and suffixed values such as
+      <code>6+</code>, while leaving non-numeric values like <code>1:1</code> unchanged.
+    </li>
+    <li>
+      <strong>Scroll reveal</strong> – All sections marked with <code>.reveal</code> are observed with
+      <code>IntersectionObserver</code>; when they cross the threshold, the script adds
+      <code>.reveal-visible</code> and unobserves them so the animation plays only once.
+    </li>
+    <li>
+      <strong>Modules table filter</strong> – In the Education section, the Year 2 / Year 3 / Year 4 buttons
+      (<code>.module-filter</code>) toggle <code>.d-none</code> on table rows
+      (<code>.module-row</code> with <code>data-year="..."</code>) and update the hint text below the table.
+    </li>
+    <li>
+      <strong>Contact form validation &amp; alerts</strong> – The contact form is validated on submit using
+      vanilla JS (name required, email must contain “@”). Depending on the result, the hidden alert element
+      (<code>#contactAlert</code>) is shown as either <code>.alert-danger</code> or
+      <code>.alert-success</code>. The form is demo-only and does not send data to a backend.
+    </li>
+    <li>
+      <strong>Message character counter</strong> – The message textarea (<code>#messageInput</code>) updates
+      a live counter (<code>#messageCounter</code>) on each keypress, showing the current length out of the
+      500-character limit.
+    </li>
+    <li>
+      <strong>Theme toggle with localStorage</strong> – The “Switch theme” button (<code>#themeToggle</code>)
+      toggles a <code>data-theme="day"</code> attribute on the <code>&lt;body&gt;</code> element and stores
+      the current choice (<code>tc-theme</code>) in <code>localStorage</code> so the light/dark preference
+      persists across page reloads.
+    </li>
+    <li>
+      <strong>Headshot image fallback</strong> – If the headshot image fails to load,
+      an <code>error</code> handler adds <code>.d-none</code> to the image to avoid showing a broken-image
+      icon.
+    </li>
+    <li>
+      <strong>Bootstrap JS components</strong> – The page includes the Bootstrap 5.3 bundle, which provides
+      built-in behaviour for the navbar collapse, accordions, carousels, the contact modal and Scrollspy.
+    </li>
+  </ul>
+
+  <!-- Hosting URL -->
+  <h2 class="h4 mt-4">Hosting URL</h2>
+  <p>
+    The website is hosted at:<br>
+    <a href="https://thomascook04.github.io/Thomas-Charles-Cook.github.io/" target="_blank" rel="noreferrer">
+      https://thomascook04.github.io/Thomas-Charles-Cook.github.io/
+    </a>
+  </p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
